@@ -1,31 +1,42 @@
-import { useState } from "react";
-import Api from "./Api";
+import React, { useState } from "react";
+import ReactCardFlip from "react-card-flip";
 
-const FrontOfCard = () => {
-  const [apiData, setApiData] = useState<any>([]);
+interface FrontOfCardProps {
+  imageUrl: string;
+  description: string;
+  name: string;
+  title: string;
+}
+
+const FrontOfCard: React.FC<FrontOfCardProps> = ({
+  imageUrl,
+  description,
+  name,
+  title,
+}) => {
+  const [isflipped, setIsFlipped] = useState<boolean>(false);
 
   return (
-    <>
-      <Api setData={setApiData} />
-      <div className="grid grid-cols-3 gap-4 ">
-        {apiData.map((article: any) => (
+    <div>
+      <h2 className="text-center font-semibold mb-6 text-sm">{title}</h2>
+      <div className="mx-auto mb-12" style={{ width: "400px"}}>
+        <ReactCardFlip isFlipped={isflipped} flipDirection="horizontal">
           <div
-            key={article.title}
-            className="card-container justify-items-center justify-center mb-12 "
+            className="cursor-pointer flex justify-center items-center"
+            onClick={() => setIsFlipped(!isflipped)}
           >
-            <div className="relative">
-              <p className="text-center font-semibold mb-6 text-color-900">
-                {article.title}
-              </p>
-              <img src={article.urlToImage} alt={article.title} className="" />
-              <div className="text-overlay absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white transition-opacity duration-300 opacity-0 hover:opacity-100">
-                {article.content}
-              </div>
-            </div>
+            <img className="rounded-xl" src={imageUrl} alt={name} />
           </div>
-        ))}
+          <div
+            className="cursor-pointer bg-slate-150 shadow-2xl rounded-lg px-8 py-4 text-left max-w-md"
+            onClick={() => setIsFlipped(!isflipped)}
+          >
+            <p className="text-center">{description}</p>
+          </div>
+        </ReactCardFlip>
       </div>
-    </>
+      </div>
   );
 };
+
 export default FrontOfCard;

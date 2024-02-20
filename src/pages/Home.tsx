@@ -7,26 +7,28 @@ const Home: React.FC = () => {
 
   return (
     <>
-    <div className="bg-slate-100 px-6">
-    <Api setData={setApiData} />
-      <div className="flex justify-center">
-        <h2 className="text-7xl font-Bahianita mt-6">Breaking news</h2>
-      </div>
+      <div className="bg-background px-6 flex flex-col">
+        <Api setData={setApiData} />
+        <div className="flex justify-center">
+          <h2 className="text-7xl font-Bahianita mt-6 text-font">
+            Breaking news
+          </h2>
+        </div>
 
-      <hr className="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 " />
-  
-      <div className="grid grid-cols-3 gap-4 ">
-        {apiData.map((data:any) => (
-        <FrontOfCard 
+        <hr className="my-12 h-px bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 " />
+
+          <div className="grid xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 justify-items-center">
+             {apiData.map((data:any) => (
+          <FrontOfCard 
         key={data.index}
         imageUrl={data.urlToImage}
         description={data.description}
         name={data.name}
-        title={data.title}
+        title={data.title.substring(0,50) +"..."}
         />
         ))}
-      </div>
-    </div>
+          </div>
+        </div>
     </>
   );
 };

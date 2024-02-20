@@ -8,6 +8,13 @@ interface FrontOfCardProps {
   title: string;
 }
 
+const CardStyle = {
+  padding: "20px",
+  margin: "20px",
+  width: "400px",
+  height: "250px",
+};
+
 const FrontOfCard: React.FC<FrontOfCardProps> = ({
   imageUrl,
   description,
@@ -17,25 +24,27 @@ const FrontOfCard: React.FC<FrontOfCardProps> = ({
   const [isflipped, setIsFlipped] = useState<boolean>(false);
 
   return (
-    <div>
-      <h2 className="text-center font-semibold mb-6 text-sm">{title}</h2>
-      <div className="mx-auto mb-12" style={{ width: "400px"}}>
+    <div className="cursor-pointer">
+      <h2 className="text-center font-semibold mb-6 text-sm text-font">
+        {title}
+      </h2>
+      <div>
         <ReactCardFlip isFlipped={isflipped} flipDirection="horizontal">
           <div
-            className="cursor-pointer flex justify-center items-center"
             onClick={() => setIsFlipped(!isflipped)}
+            style={CardStyle}
           >
-            <img className="rounded-xl" src={imageUrl} alt={name} />
+            <img className="w-full h-full object-cover rounded-lg" src={imageUrl} alt={name} />
           </div>
-          <div
-            className="cursor-pointer bg-slate-150 shadow-2xl rounded-lg px-8 py-4 text-left max-w-md"
+          <div     
             onClick={() => setIsFlipped(!isflipped)}
+            className=""
           >
-            <p className="text-center">{description}</p>
+            <p className="text-center pt-20">{description}</p>
           </div>
         </ReactCardFlip>
       </div>
-      </div>
+    </div>
   );
 };
 

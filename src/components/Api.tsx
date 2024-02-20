@@ -9,7 +9,7 @@ const Api: React.FC<ApiProps> = ({setData}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const ApiKey = "477d8963fdd842258e34e37f277f356d";
+      const ApiKey = process.env.REACT_APP_API_KEY;
 
       try {
         const response = await axios.get(

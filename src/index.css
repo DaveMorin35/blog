@@ -4,4 +4,8 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Bahianita&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch+Pop&display=swap');
 
+.shadow-custom {
+    filter: drop-shadow(10px 8px 6px #ACB0BA);
+}

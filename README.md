@@ -1,3 +1,4 @@
-![Screenshot from 2024-02-13 15-51-56](https://github.com/DaveMorin35/blog/assets/97618234/8a7866a8-4404-4c0b-94b2-dd42da1ca743)
+![Screenshot from 2024-02-20 15-17-21](https://github.com/DaveMorin35/blog/assets/97618234/3113f087-3c17-4434-ae57-e3013b6a4e2f)
 
 This is a small blog project to continue to learn Javascript,Typescript and Tailwindcss. This project was focus on Typescript.
+
